@@ -1,5 +1,7 @@
 from abc import abstractmethod
 
+from network_display.frame_buffer import Framebuffer565
+
 class Display:
     @abstractmethod
     def clear(self, color=(0, 0, 0)):
@@ -29,6 +31,3 @@ class Display:
     def quit(self):
         raise NotImplementedError
     
-    @abstractmethod
-    def draw_frame(self, framebuffer):
-        raise NotImplementedError

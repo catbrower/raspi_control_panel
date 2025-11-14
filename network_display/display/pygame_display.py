@@ -1,6 +1,7 @@
 import pygame
 
 from network_display.display import Display
+from network_display.frame_buffer import Framebuffer565
 
 class PygameDisplay(Display):
     def __init__(self, width=800, height=480, scale=1):
@@ -31,7 +32,7 @@ class PygameDisplay(Display):
         img = self.font.render(text, True, color)
         self.surface.blit(img, (x, y))
 
-    def update(self, framebuffer):
+    def update(self, framebuffer:  Framebuffer565) -> None:
         # Scale up for viewing, if needed
         # scaled = pygame.transform.scale(
         #     self.surface,
@@ -49,6 +50,4 @@ class PygameDisplay(Display):
 
     def quit(self):
         pass
-
-    def draw_frame(self, framebuffer):
-        pass
+    

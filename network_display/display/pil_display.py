@@ -1,6 +1,7 @@
 from PIL import Image, ImageDraw, ImageFont
 
 from network_display.display import Display
+from network_display.frame_buffer import Framebuffer565
 
 class PILDisplay(Display):
     def __init__(self, width = 800, height = 480):
@@ -22,11 +23,11 @@ class PILDisplay(Display):
     def draw_text(self, x, y, text, color):
         self.draw.text((x, y), text, font=self.font, fill=color)
 
+    def update(self, framebuffer:  Framebuffer565) -> None:
+        pass
+
     def show(self):
         self.image.show()  # opens the image in your default viewer
 
     def quit(self):
-        pass
-
-    def draw_frame(self, framebuffer):
         pass

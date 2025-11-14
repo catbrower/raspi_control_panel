@@ -2,6 +2,7 @@ import board, busio, digitalio
 from adafruit_ra8875.ra8875 import RA8875, color565
 
 from network_display.display import Display
+from network_display.frame_buffer import Framebuffer565
 
 BLACK = color565(0, 0, 0)
 WHITE = color565(255, 255, 255)
@@ -35,16 +36,7 @@ class RA8875Display(Display):
         self.lcd.txt_size(2)
         self.lcd.txt_write(text)
 
-    def update(self):
-        pass  # hardware draws instantly
-
-    def show(self):
-        pass  # not needed on hardware
-
-    def quit(self):
-        self.lcd.sleep(True)
-
-    def draw_frame(self, framebuffer):
+    def update(self, framebuffer:  Framebuffer565) -> None:
         """
         Write the entire framebuffer to RA8875 at once.
         RA8875 expects big-endian 16-bit RGB565.
@@ -55,3 +47,9 @@ class RA8875Display(Display):
 
         # RA8875 block write
         self.lcd.push_pixels(data)
+
+    def show(self):
+        pass  # not needed on hardware
+
+    def quit(self):
+        self.lcd.sleep(True)
