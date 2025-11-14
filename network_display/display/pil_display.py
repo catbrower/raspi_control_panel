@@ -1,6 +1,6 @@
 from PIL import Image, ImageDraw, ImageFont
 
-from display import Display
+from network_display.display import Display
 
 class PILDisplay(Display):
     def __init__(self, width = 800, height = 480):

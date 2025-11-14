@@ -1,6 +1,6 @@
 import pygame
 
-from display import Display
+from network_display.display import Display
 
 class PygameDisplay(Display):
     def __init__(self, width=800, height=480, scale=1):
