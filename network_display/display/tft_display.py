@@ -17,13 +17,13 @@ class RA8875Display(Display):
         self.lcd.init()
 
     def clear(self, color=(0, 0, 0)):
-        self.lcd.fill(color565(**color))
+        self.lcd.fill(color565(color[0], color[1], color[2]))
 
     def draw_pixel(self, x, y, color):
-        self.lcd.pixel(x, y, color)
+        self.lcd.pixel(x, y, color565(color[0], color[1], color[2]))
 
     def draw_line(self, x1, y1, x2, y2, color):
-        self.lcd.line(x1, y1, x2, y2, color)
+        self.lcd.line(x1, y1, x2, y2, color565(color[0], color[1], color[2]))
 
     def draw_text(self, x, y, text, color):
         self.lcd.txt_set_cursor(x, y)
