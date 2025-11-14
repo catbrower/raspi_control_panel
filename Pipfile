@@ -4,8 +4,6 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-adafruit-circuitpython-ra8875 = "*"
-pygame = "*"
 
 [dev-packages]
 

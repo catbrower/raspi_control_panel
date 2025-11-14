@@ -1,3 +1,9 @@
+import os
+import sys
+running_on_pi = "arm" in sys.platform or "aarch64" in sys.platform
+
+if running_on_pi:
+    os.environ["SDL_VIDEODRIVER"] = "dummy"
 
 import pygame
 
@@ -28,17 +34,13 @@ def render(display):
 
 
 def main():
-    running_on_pi = True
+    
+
+    print(f'Running on Pi: {running_on_pi}')
 
     if running_on_pi:
         disp = RA8875Display()
     else:
         disp = PygameDisplay(800, 480, scale=1)
-
         
     render(disp)
-    # disp = PILDisplay(800, 480)
-    # disp.clear((0, 0, 255))
-    # disp.draw_text(50, 50, "Hello RA8875 emulator!", (255, 255, 0))
-    # disp.draw_line(0, 0, 799, 479, (255, 0, 0))
-    # disp.show()

@@ -6,6 +6,7 @@ Author-email: Your Name <you@example.com>
 License: MIT
 Requires-Python: >=3.10
 Description-Content-Type: text/markdown
+Requires-Dist: adafruit-blinka
 Requires-Dist: adafruit-circuitpython-ra8875
 Requires-Dist: pillow
 Requires-Dist: pygame

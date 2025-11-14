@@ -1,3 +1,4 @@
+README.md
 pyproject.toml
 network_display/__init__.py
 network_display/main.py

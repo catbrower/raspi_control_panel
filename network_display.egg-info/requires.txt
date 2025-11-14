@@ -1,3 +1,4 @@
+adafruit-blinka
 adafruit-circuitpython-ra8875
 pillow
 pygame
