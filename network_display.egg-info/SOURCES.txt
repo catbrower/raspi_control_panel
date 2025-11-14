@@ -1,6 +1,8 @@
 README.md
 pyproject.toml
 network_display/__init__.py
+network_display/font5x7.py
+network_display/frame_buffer.py
 network_display/main.py
 network_display.egg-info/PKG-INFO
 network_display.egg-info/SOURCES.txt

@@ -43,3 +43,15 @@ class RA8875Display(Display):
 
     def quit(self):
         self.lcd.sleep(True)
+
+    def draw_frame(self, framebuffer):
+        """
+        Write the entire framebuffer to RA8875 at once.
+        RA8875 expects big-endian 16-bit RGB565.
+        """
+
+        # Convert numpy array to big-endian 16-bit
+        data = framebuffer.buf.astype(">u2").tobytes()
+
+        # RA8875 block write
+        self.lcd.draw_pixels(data)

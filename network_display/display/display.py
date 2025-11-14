@@ -28,3 +28,7 @@ class Display:
     @abstractmethod
     def quit(self):
         raise NotImplementedError
+    
+    @abstractmethod
+    def draw_frame(self, framebuffer):
+        raise NotImplementedError

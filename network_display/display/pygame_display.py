@@ -31,14 +31,24 @@ class PygameDisplay(Display):
         img = self.font.render(text, True, color)
         self.surface.blit(img, (x, y))
 
-    def update(self):
+    def update(self, framebuffer):
         # Scale up for viewing, if needed
-        scaled = pygame.transform.scale(
-            self.surface,
-            (self.width * self.scale, self.height * self.scale)
-        )
-        self.window.blit(scaled, (0, 0))
+        # scaled = pygame.transform.scale(
+        #     self.surface,
+        #     (self.width * self.scale, self.height * self.scale)
+        # )
+        # self.window.blit(scaled, (0, 0))
+        # pygame.display.flip()
+        rgb = framebuffer.to_rgb888_surface()
+
+        # Pygame wants (width, height, 3)
+        surf = pygame.surfarray.make_surface(rgb)
+
+        self.window.blit(surf, (0, 0))
         pygame.display.flip()
 
     def quit(self):
+        pass
+
+    def draw_frame(self, framebuffer):
         pass

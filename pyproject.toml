@@ -17,7 +17,8 @@ dependencies = [
     "adafruit-blinka",
     "adafruit-circuitpython-ra8875",
     "pillow",
-    "pygame"
+    "pygame",
+    "numpy"
 ]
 
 # 👇 This creates the command-line executable

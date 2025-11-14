@@ -27,3 +27,6 @@ class PILDisplay(Display):
 
     def quit(self):
         pass
+
+    def draw_frame(self, framebuffer):
+        pass

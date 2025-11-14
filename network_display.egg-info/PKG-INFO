@@ -10,3 +10,4 @@ Requires-Dist: adafruit-blinka
 Requires-Dist: adafruit-circuitpython-ra8875
 Requires-Dist: pillow
 Requires-Dist: pygame
+Requires-Dist: numpy
