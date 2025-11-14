@@ -15,8 +15,7 @@ authors = [
 
 dependencies = [
     # "requests>=2.0",   # Example
-    "busio",
-    "board",
+    "adafruit-blinka",
     "adafruit-circuitpython-ra8875",
     "pillow",
     "pygame"
