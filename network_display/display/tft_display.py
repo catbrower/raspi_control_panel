@@ -48,13 +48,12 @@ class RA8875Display(Display):
         # Convert numpy array to big-endian 16-bit
         data = framebuffer.to_rgb565()
 
-        self.cs.value = True
-        self.display.spi_device.spi._spi.
-        self.display.set_window(0, 0, self.width, self.height)
+        # self.cs.value = True
+        self.display.set_window(0, 0, self.width - 1, self.height - 1)
 
         # RA8875 block write
         self.display.push_pixels(data)
-        self.cs.value = False
+        # self.cs.value = False
         # self.cs.direction = digitalio.Direction.INPUT
         # self.cs.pull = digitalio.Pull.UP
         time.sleep(0.2)
