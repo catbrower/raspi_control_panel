@@ -96,9 +96,17 @@ class Framebuffer565:
         return np.transpose((1, 0, 2))
 
     def to_rgb565(self):
-        return self.buf.transpose()
-        # r = (self.buf[:, :, 0] >> 3).astype(np.uint16)
-        # g = (self.buf[:, :, 1] >> 2).astype(np.uint16)
-        # b = (self.buf[:, :, 2] >> 3).astype(np.uint16)
-        # rgb565 = (r << 11) | (g << 5) | b
-        # return rgb565.astype(">u2").tobytes()
+        """
+        Convert the framebuffer (height, width, 3) RGB888 -> RGB565
+        Returns bytes in big-endian order suitable for RA8875.
+        """
+        # Extract RGB channels
+        r = (self.buf[:, :, 0] >> 3).astype(np.uint16)  # 5 bits
+        g = (self.buf[:, :, 1] >> 2).astype(np.uint16)  # 6 bits
+        b = (self.buf[:, :, 2] >> 3).astype(np.uint16)  # 5 bits
+
+        # Pack into 16-bit values
+        rgb565 = (r << 11) | (g << 5) | b
+
+        # Convert to big-endian byte order
+        return rgb565.astype(">u2").tobytes()
