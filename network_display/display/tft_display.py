@@ -1,5 +1,5 @@
 import board, busio
-from adafruit_ra8875 import RA8875
+from adafruit_ra8875.ra8875 import RA8875
 
 from display import Display
 
