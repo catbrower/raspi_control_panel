@@ -18,23 +18,23 @@ class RA8875Display(Display):
         spi = busio.SPI(clock = board.SCK, MOSI = board.MOSI)
         BAUDRATE = 6000000
 
-        self.lcd = RA8875(spi, cs, rst, baudrate = BAUDRATE, width = 800, height = 480)
-        self.lcd.init()
+        self.display = RA8875(spi, cs, rst, baudrate = BAUDRATE, width = 800, height = 480)
+        self.display.init()
 
     def clear(self, color=(0, 0, 0)):
-        self.lcd.fill(color565(color[0], color[1], color[2]))
+        self.display.fill(color565(color[0], color[1], color[2]))
 
     def draw_pixel(self, x, y, color):
-        self.lcd.pixel(x, y, color565(color[0], color[1], color[2]))
+        self.display.pixel(x, y, color565(color[0], color[1], color[2]))
 
     def draw_line(self, x1, y1, x2, y2, color):
-        self.lcd.line(x1, y1, x2, y2, color565(color[0], color[1], color[2]))
+        self.display.line(x1, y1, x2, y2, color565(color[0], color[1], color[2]))
 
     def draw_text(self, x, y, text, color):
-        self.lcd.txt_set_cursor(x, y)
-        self.lcd.txt_trans(WHITE)
-        self.lcd.txt_size(2)
-        self.lcd.txt_write(text)
+        self.display.txt_set_cursor(x, y)
+        self.display.txt_trans(WHITE)
+        self.display.txt_size(2)
+        self.display.txt_write(text)
 
     def update(self, framebuffer:  Framebuffer565) -> None:
         """
@@ -44,13 +44,13 @@ class RA8875Display(Display):
 
         # Convert numpy array to big-endian 16-bit
         data = framebuffer.to_rgb565()
-        self.lcd.set_window(0, 0, self.width, self.height)
+        self.display.set_window(0, 0, self.width, self.height)
 
         # RA8875 block write
-        self.lcd.push_pixels(data)
+        self.display.push_pixels(data)
 
     def show(self):
         pass  # not needed on hardware
 
     def quit(self):
-        self.lcd.sleep(True)
+        self.display.sleep(True)

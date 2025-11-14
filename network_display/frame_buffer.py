@@ -101,8 +101,8 @@ class Framebuffer565:
         Returns bytes in big-endian order suitable for RA8875.
         """
         # Extract RGB channels
-        r = (self.buf[:, :, 0] >> 3).astype(np.uint16)  # 5 bits
-        g = (self.buf[:, :, 1] >> 2).astype(np.uint16)  # 6 bits
+        r = ((self.buf[:, :, 0] & 0xF8) << 8).astype(np.uint16)  # 5 bits
+        g = ((self.buf[:, :, 1] & 0xFC) << 3).astype(np.uint16)  # 6 bits
         b = (self.buf[:, :, 2] >> 3).astype(np.uint16)  # 5 bits
 
         # Pack into 16-bit values
