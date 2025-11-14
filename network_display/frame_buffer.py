@@ -93,10 +93,10 @@ class Framebuffer565:
         return np.transpose(self.buf.astype(np.uint8), (1, 0, 2))
 
     def get_buffer(self) -> np.array:
-        return self.buf
+        return np.transpose((1, 0, 2))
 
     def to_rgb565(self):
-        return self.buf
+        return self.buf.transpose()
         # r = (self.buf[:, :, 0] >> 3).astype(np.uint16)
         # g = (self.buf[:, :, 1] >> 2).astype(np.uint16)
         # b = (self.buf[:, :, 2] >> 3).astype(np.uint16)
