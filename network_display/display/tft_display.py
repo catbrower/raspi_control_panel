@@ -1,4 +1,6 @@
+import time
 import board, busio, digitalio
+import adafruit_ra8875.registers as reg
 from adafruit_ra8875.ra8875 import RA8875, color565
 
 from network_display.display import Display
@@ -48,6 +50,8 @@ class RA8875Display(Display):
 
         # RA8875 block write
         self.display.push_pixels(data)
+        time.sleep(0.2)
+        # self.display._wait_poll(reg.MRWC, reg.ST)
 
     def show(self):
         pass  # not needed on hardware
