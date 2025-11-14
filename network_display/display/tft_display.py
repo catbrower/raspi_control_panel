@@ -20,6 +20,7 @@ class RA8875Display(Display):
         spi = busio.SPI(clock = board.SCK, MOSI = board.MOSI)
         BAUDRATE = 6000000
 
+        self.cs = cs
         self.display = RA8875(spi, cs, rst, baudrate = BAUDRATE, width = 800, height = 480)
         self.display.init()
 
