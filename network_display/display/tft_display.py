@@ -8,6 +8,10 @@ WHITE = color565(255, 255, 255)
 
 class RA8875Display(Display):
     def __init__(self):
+        self.width = 800
+        self.height = 480
+        self.scale = 1
+
         cs = digitalio.DigitalInOut(board.D13)
         rst = digitalio.DigitalInOut(board.D5)
         spi = busio.SPI(clock = board.SCK, MOSI = board.MOSI)
