@@ -1,11 +1,12 @@
 import os
 import sys
-running_on_pi = "arm" in sys.platform or "aarch64" in sys.platform
+running_on_pi = True
+
+import pygame
 
 if running_on_pi:
     os.environ["SDL_VIDEODRIVER"] = "dummy"
-
-import pygame
+    pygame.init()
 
 from network_display.display import PygameDisplay, RA8875Display
 
