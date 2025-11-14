@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "network_display"
+version = "0.1.0"
+description = "My awesome command line tool"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [
+    { name = "Your Name", email = "you@example.com" }
+]
+
+dependencies = [
+    # "requests>=2.0",   # Example
+    "busio",
+    "board",
+    "adafruit-circuitpython-ra8875",
+    "pillow",
+    "pygame"
+]
+
+# 👇 This creates the command-line executable
+[project.scripts]
+network_display = "network_display.main:main"

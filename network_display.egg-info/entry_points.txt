@@ -1,0 +1,2 @@
+[console_scripts]
+network_display = network_display.main:main

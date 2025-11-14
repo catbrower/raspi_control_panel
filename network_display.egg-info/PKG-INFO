@@ -1,0 +1,11 @@
+Metadata-Version: 2.4
+Name: network_display
+Version: 0.1.0
+Summary: My awesome command line tool
+Author-email: Your Name <you@example.com>
+License: MIT
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+Requires-Dist: adafruit-circuitpython-ra8875
+Requires-Dist: pillow
+Requires-Dist: pygame
