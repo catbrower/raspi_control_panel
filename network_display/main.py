@@ -1,6 +1,6 @@
 import os
 import sys
-running_on_pi = False
+running_on_pi = True
 
 import pygame
 
@@ -57,8 +57,6 @@ def render(display):
 
         # # Demo text
         # display.draw_text(10, 10, f"x={x}", (0, 255, 0))
-
-        x = (x + 2) % display.width
 
         # display.update()
 
