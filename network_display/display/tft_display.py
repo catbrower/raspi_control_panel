@@ -53,6 +53,7 @@ class RA8875Display(Display):
 
         # RA8875 block write
         self.display.push_pixels(data)
+        self.cs.direction = digitalio.Direction.INPUT
         self.cs.pull = digitalio.Pull.UP
         time.sleep(0.2)
         # self.display._wait_poll(reg.MRWC, reg.ST)
