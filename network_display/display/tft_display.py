@@ -18,7 +18,7 @@ class RA8875Display(Display):
         cs = digitalio.DigitalInOut(board.D13)
         rst = digitalio.DigitalInOut(board.D5)
         spi = busio.SPI(clock = board.SCK, MOSI = board.MOSI)
-        BAUDRATE = 6000000
+        BAUDRATE = 48000000
 
         self.cs = cs
         self.display = RA8875(spi, cs, rst, baudrate = BAUDRATE, width = 800, height = 480)
@@ -49,6 +49,7 @@ class RA8875Display(Display):
         data = framebuffer.to_rgb565()
 
         self.cs.value = True
+        self.display.spi_device.spi._spi.
         self.display.set_window(0, 0, self.width, self.height)
 
         # RA8875 block write
