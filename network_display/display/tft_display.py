@@ -43,7 +43,8 @@ class RA8875Display(Display):
         """
 
         # Convert numpy array to big-endian 16-bit
-        data = framebuffer.to_rgb565()
+        data = framebuffer.get_buffer().tobytes()
+        self.lcd.set_window(0, 0, self.width, self.height)
 
         # RA8875 block write
         self.lcd.push_pixels(data)
