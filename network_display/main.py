@@ -21,26 +21,25 @@ def render(display):
             if event.type == pygame.QUIT:
                 running = False
 
-        try:
-            fb.clear((0, 0, 40))
-        except Exception as ex:
-            print('Error clearing')
-            print(ex)
-            quit()
+        if x == 0:
+            fb.clear((255, 0, 0))
+        if x == 1:
+            fb.clear((0, 255, 0))
+        if x == 2:
+            fb.clear((0, 0, 255))
+        # try:
+        #     fb.draw_line(x, 0, x, fb.height, (255,255,0))
+        # except Exception as ex:
+        #     print('Error line-ing')
+        #     print(ex)
+        #     quit()
 
-        try:
-            fb.draw_line(x, 0, x, fb.height, (255,255,0))
-        except Exception as ex:
-            print('Error line-ing')
-            print(ex)
-            quit()
-
-        try:
-            fb.draw_text(10,10, f"x={x}", (0,255,0))
-        except Exception as ex:
-            print('Error drawing')
-            print(ex)
-            quit()
+        # try:
+        #     fb.draw_text(10,10, f"x={x}", (0,255,0))
+        # except Exception as ex:
+        #     print('Error drawing')
+        #     print(ex)
+        #     quit()
 
         try:
             display.update(fb)
@@ -48,7 +47,9 @@ def render(display):
             print('Error updating')
             print(ex)
 
-        x = (x + 4) % fb.width
+        x += 1
+        x = x % 3
+        # x = (x + 4) % fb.width
 
         # display.clear((0, 0, 40))  # dark background
 
