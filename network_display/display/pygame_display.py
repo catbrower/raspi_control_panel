@@ -39,3 +39,6 @@ class PygameDisplay(Display):
         )
         self.window.blit(scaled, (0, 0))
         pygame.display.flip()
+
+    def quit(self):
+        pass

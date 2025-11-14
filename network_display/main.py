@@ -39,9 +39,10 @@ def main():
 
     print(f'Running on Pi: {running_on_pi}')
 
-    if running_on_pi:
-        disp = RA8875Display()
-    else:
-        disp = PygameDisplay(800, 480, scale=1)
-        
-    render(disp)
+    disp = RA8875Display() if running_on_pi else PygameDisplay(800, 480, scale=1)
+    
+    try:    
+        render(disp)
+    except:
+        pygame.quit()
+        disp.quit()

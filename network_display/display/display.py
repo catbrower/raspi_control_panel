@@ -24,3 +24,7 @@ class Display:
     @abstractmethod
     def show(self):
         raise NotImplementedError
+    
+    @abstractmethod
+    def quit(self):
+        raise NotImplementedError

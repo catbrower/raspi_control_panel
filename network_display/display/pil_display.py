@@ -24,3 +24,6 @@ class PILDisplay(Display):
 
     def show(self):
         self.image.show()  # opens the image in your default viewer
+
+    def quit(self):
+        pass

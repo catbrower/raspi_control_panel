@@ -40,3 +40,6 @@ class RA8875Display(Display):
 
     def show(self):
         pass  # not needed on hardware
+
+    def quit(self):
+        self.lcd.sleep(True)
